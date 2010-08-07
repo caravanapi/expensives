@@ -38,6 +38,7 @@ end
 
 get '/' do
   @posts = Post.all
+  @issue = 1
   erb :index
 end
 

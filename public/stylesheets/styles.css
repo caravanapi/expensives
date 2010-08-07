@@ -1,4 +1,10 @@
 * {margin:0; padding:0;}
+a img {
+  border:none;
+}
+ul {
+  list-style-type:none;
+}
 body {
   background-color:#000;
   font:16px/1.4em Arial, sans-serif;
@@ -54,7 +60,7 @@ p.legend span {
 }
 #morenews {
   margin-top:2em;
-  color:red;
+  color:yellow;
 }
 #formnews {
   padding:30px 0;
@@ -88,6 +94,17 @@ p.legend span {
   height:28px;
   border:3px solid #666;
   margin-bottom:10px;
+}
+#news {
+  overflow:hidden;
+}
+.post li {
+  width:200px;
+  float:left;
+}
+.post h2 {
+  font-size:1em;
+  
 }
 #front {
   position:relative;
