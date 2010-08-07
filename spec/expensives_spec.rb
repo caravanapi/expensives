@@ -36,7 +36,7 @@ describe "Expensives" do
       Post.should_receive(:by_slug).with('this-is-a-title').and_return(@post)
       get '/this-is-a-title'
       last_response.should be_ok
-      last_response.body.should =~ /This is a title/ 
+      last_response.body.should =~ /This is a title/
     end
   end
 end

@@ -13,6 +13,7 @@ get '/' do
 end
 
 get '/:slug' do
+  @post = Post.by_slug(params[:slug])
   erb :show
 end
 
