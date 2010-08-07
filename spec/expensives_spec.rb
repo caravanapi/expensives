@@ -30,38 +30,42 @@ describe "Expensives" do
     end
   end
   
-  describe "GET /this-is-a-title" do
+  describe "GET /noticias/this-is-a-title" do
     it "should display a post" do
       Post.should_receive(:by_slug).with('this-is-a-title').and_return(@post)
-      get '/this-is-a-title'
+      get '/noticias/this-is-a-title'
       last_response.should be_ok
       last_response.body.should =~ /This is a title/
     end
   end
   
-  describe "GET /admin/new" do
+  describe "GET /noticias/nova" do
     it "should display a form to create a new post" do
-      get '/admin/new'
+      get '/noticias/nova'
       last_response.should be_ok
-      last_response.body.should =~ /<form action=\"\/admin\/create\" method=\"post\">/
+      last_response.body.should =~ /<form action=\"\/noticias\" method=\"post\">/
     end
   end
   
-  describe "POST /admin/create" do
-    it "should create a new post" do
-      Post.should_receive(:create).with({
+  describe "POST /noticias" do
+    before(:each) do
+      @params = {
         'title' => 'This is a titile',
         'subtitle' => 'This is a subtitle',
         'image_url' => 'http://www.google.com'
-      }).and_return(@post)
-      
-      post '/admin/create', :post => {
-        :title => 'This is a titile',
-        :subtitle => 'This is a subtitle',
-        :image_url => 'http://www.google.com'
       }
-      follow_redirect!
-      last_response.should be_ok
+    end
+    
+    describe "with valid params" do
+      it "should redirect to post page" do
+        Post.should_receive(:new).with(@params).and_return(@post)
+        @post.should_receive(:save).and_return(true)
+      
+        post '/noticias', :post => @params
+        follow_redirect!
+        last_response.should be_ok
+      end
     end
   end
+
 end

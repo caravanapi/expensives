@@ -1,6 +1,6 @@
 config = YAML.load(File.read('database.yml'))
 
-ActiveRecord::Base.establish_connection config[:environment]
+ActiveRecord::Base.establish_connection config[ENV['RACK_ENV']]
 
 ActiveRecord::Migration.class_eval do
   unless Post.table_exists?

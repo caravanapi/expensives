@@ -1,6 +1,6 @@
 development:
   adapter: sqlite3
-  database: ./db/expensive.db
+  database: ./db/expensives.db
   
 production:
   encoding: unicode
