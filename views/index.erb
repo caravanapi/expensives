@@ -6,10 +6,13 @@
   <body>
     <h1>Revista Fuças</h1>
     <% @posts.each do |post| %>
-      <article class="post">
-        <h2><%= post.title %></h2>
-        <p><%= post.subtitle%></p>
-      </article>
+      <ul class="post">
+        <li>
+          <h2><%= post.title %></h2>
+          <img src="<%= post.image_url %>" title="<%= post.title %>" />
+          <p><%= post.subtitle%></p>
+        </li>
+      </ul>
     <% end %>
   </body>
 <html>
