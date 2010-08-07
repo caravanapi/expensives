@@ -27,9 +27,12 @@ body {
   margin:0 auto;
   text-align:left;
 }
-#top, #front {
+#top, #front, #fb {
   width:100%;
   clear:both;
+}
+#fb {
+  overflow:hidden;
 }
 h1 {
   float:left;
