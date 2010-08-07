@@ -126,14 +126,15 @@ p.legend span {
   clear:both;
 }
 .post li {
-  width:150px;
-  height:150px;
+  width:156px;
+  height:156px;
   overflow:hidden;
   float:left;
-  margin-right:16px;
+  margin-right:10px;
 }
 .post .thumb {
   width:150px;
+  border:3px solid #888;
 }
 .post h2 {
   font-size:1em;
