@@ -1,26 +1,28 @@
 require 'sinatra'
 require 'active_record'
+$LOAD_PATH << '.'
 
-require File.expand_path('../models/post', __FILE__)
+require 'models/post'
 configure do
-  require File.expand_path('../models/database', __FILE__)
+  require 'models/database'
 end
 
 get '/' do
+  @posts = Post.all
   erb :index
 end
 
-get '/noticia/:title' do
+get '/:slug' do
   erb :show
 end
 
 # Administração
 
-get '/new' do
+get '/admin/new' do
   erb :new
 end
 
-post '/create' do
+post '/admin/create' do
   
 end
 
