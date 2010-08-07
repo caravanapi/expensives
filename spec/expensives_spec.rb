@@ -67,5 +67,21 @@ describe "Expensives" do
       end
     end
   end
+  
+  describe "POST /ativar/id" do
+    
+    before(:each) do
+      @post = Post.create(:title => "Notícia em primeira mão",
+                          :subtitle => "Que bomba!",
+                          :image_url => "http://google.com/image.jpg")
+    end
+    
+    it "should deactivate a post" do
+      pending
+      Post.should_receive(:active).with(@post.id).and_return(true)
+      @post.should_receive(:save)
+    end
+  end
+  
 
 end
