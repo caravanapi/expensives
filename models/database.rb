@@ -1,6 +1,6 @@
 ActiveRecord::Base.establish_connection(
-   :adapter   => 'sqlite3',
-   :database  => "./db/expensives.db"
+   :adapter   => 'postgresql',
+   :database  => ENV['DATABASE_URL'] || './db/expensive.db'
 )
 
 ActiveRecord::Migration.class_eval do
