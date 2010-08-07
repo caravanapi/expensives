@@ -8,7 +8,7 @@ configure do
 end
 
 get '/' do
-  @posts = Post.all
+  # @posts = Post.all
   erb :index
 end
 
