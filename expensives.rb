@@ -44,5 +44,6 @@ end
 
 get '/noticias/:slug' do
   @post = Post.by_slug(params[:slug]).first
+  @posts = Post.all
   erb :show
 end

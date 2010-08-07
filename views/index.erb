@@ -13,9 +13,9 @@
 <% @posts.each do |post| %>
   <ul class="post">
     <li>
-      <h2><%= post.title %></h2>
-      <img src="<%= post.image_url %>" title="<%= post.title %>" class="thumb" />
-      <p><%= post.subtitle%></p>
+      <!-- h2><%= post.title %></h2 -->
+      <a href="/noticias/<%= post.slug %>"><img src="<%= post.image_url %>" title="<%= post.title %>: <%= post.subtitle %>" class="thumb" /></a>
+      <!-- p><%= post.subtitle%></p -->
     </li>
   </ul>
 <% end %>
