@@ -23,11 +23,20 @@ end
 
 post '/ativar/:id' do
   @post = Post.find(params[:id])
+  @post.active = true
+  if @post.save
+    redirect "/noticias/#{@post.slug}"
+  end
 end
 
 post '/desativar/:id' do
-
+  @post = Post.find(params[:id])
+  @post.active = false
+  if @post.save
+    redirect "/noticias"
+  end
 end  
+
 get '/' do
   @posts = Post.all
   erb :index
