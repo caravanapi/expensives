@@ -44,7 +44,7 @@ describe "Expensives" do
     it "should display a form to create a new post" do
       get '/admin/new'
       last_response.should be_ok
-      last_response.body.should =~ /<form action=\"\/posts\" method=\"post\">/
+      last_response.body.should =~ /<form action=\"\/admin\/create\" method=\"post\">/
     end
   end
 end
