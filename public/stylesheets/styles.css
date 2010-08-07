@@ -27,7 +27,7 @@ body {
   margin:0 auto;
   text-align:left;
 }
-#top, #front, #fb {
+#top, #container, #fb {
   width:100%;
   clear:both;
 }
@@ -55,6 +55,39 @@ p.legend span {
 #morenews {
   margin-top:2em;
   color:red;
+}
+#formnews {
+  padding:30px 0;
+  margin:0 auto;
+  width:650px;
+  font-size:1.7em;
+  color:#898989;
+}
+#formnews label {
+  display:inline-block;
+  width:220px;
+  margin-bottom:30px;
+}
+#formnews button {
+  border:none;
+  padding:10px 0;
+  width:200px;
+  margin:0 auto;
+  display:block;
+  font-size:1.05em;
+  color:#000085;
+  text-shadow:0 1px 0 #FFF;
+  background:#fff url("/images/bg-button.gif") left bottom repeat-x;
+  -webkit-border-radius:10px;
+     -moz-border-radius:10px;
+          border-radius:10px;
+}
+#post_title, #post_subtitle, #post_image_url {
+  font-size:1em;
+  padding:4px 5px;
+  height:28px;
+  border:3px solid #666;
+  margin-bottom:10px;
 }
 #front {
   position:relative;
