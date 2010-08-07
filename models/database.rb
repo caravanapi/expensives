@@ -1,7 +1,6 @@
-ActiveRecord::Base.establish_connection(
-   :adapter   => 'postgresql',
-   :database  => ENV['DATABASE_URL'] || './db/expensive.db'
-)
+config = YAML.load(File.read('database.yml'))
+
+ActiveRecord::Base.establish_connection config[:environment]
 
 ActiveRecord::Migration.class_eval do
   unless Post.table_exists?
