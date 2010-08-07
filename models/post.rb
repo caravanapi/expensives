@@ -7,7 +7,7 @@ class Post < ActiveRecord::Base
   
   named_scope :by_slug, lambda { |slug| { :conditions => { :slug => slug } } }
   
-  default_scope :conditions => "active = 1"
+#  default_scope :conditions => "active = 1"
   
   def slugfy
     self.slug = title.gsub(/\W/, '-').downcase
