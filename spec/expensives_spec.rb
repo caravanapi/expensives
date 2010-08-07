@@ -39,4 +39,12 @@ describe "Expensives" do
       last_response.body.should =~ /This is a title/
     end
   end
+  
+  describe "GET /admin/new" do
+    it "should display a form to create a new post" do
+      get '/admin/new'
+      last_response.should be_ok
+      last_response.body.should =~ /<form action=\"\/posts\" method=\"post\">/
+    end
+  end
 end
