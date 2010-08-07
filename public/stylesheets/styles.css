@@ -44,6 +44,9 @@ body {
   font-size:3em;
   line-height:1.2em;
 }
+#container.box .subtitle {
+  margin:1em 0;
+}
 #fb {
   width:450px;
   overflow:hidden;
