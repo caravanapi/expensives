@@ -15,18 +15,12 @@
       <div id="front">
         <img src="images/DSC00278.jpg" alt="Fábio Akita volta pra casa arrastado depois do #horaextra do #oxenterails" />
         <p class="legend">#horaextra #oxenterails <span>Fábio Akita volta pra casa arrastado</span></p>
+        <h3 id="morenews">Outras Notícias</h3>
+        <ul>
+          <li></li>
+        </ul>
       </div>
     </div>
     <div id="footer"><a href="http://search.twitter.com/search?q=caravanapi">#caravanapi</a></div>
-
-    <% @posts.each do |post| %>
-      <ul class="post">
-        <li>
-          <h2><%= post.title %></h2>
-          <img src="<%= post.image_url %>" title="<%= post.title %>" />
-          <p><%= post.subtitle%></p>
-        </li>
-      </ul>
-    <% end %>
   </body>
 <html>

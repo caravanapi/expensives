@@ -2,10 +2,12 @@ require 'rubygems'
 require 'sinatra'
 require 'active_record'
 
+=begin
 require 'models/post'
 configure do
   require 'models/database'
 end
+=end
 
 get '/' do
   # @posts = Post.all

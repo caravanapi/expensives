@@ -1,7 +1,6 @@
-ActiveRecord::Base.establish_connection(
-   :adapter   => 'sqlite3',
-   :database  => "./db/expensives.db"
-)
+config = YAML.load(File.read('database.yml'))
+
+ActiveRecord::Base.establish_connection config[:environment]
 
 ActiveRecord::Migration.class_eval do
   unless Post.table_exists?
