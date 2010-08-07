@@ -1,9 +1,18 @@
-<ul>
-  <% @posts.each do |post| %>
-    <li>
-      <article class="post">
-        <h1><%= post.title %></h1>
-      </article>
-    </li>
-  <% end %>
-</ul>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>Revista Fuças</title>
+  </head>
+  <body>
+    <h1>Revista Fuças</h1>
+    <% @posts.each do |post| %>
+      <ul class="post">
+        <li>
+          <h2><%= post.title %></h2>
+          <img src="<%= post.image_url %>" title="<%= post.title %>" />
+          <p><%= post.subtitle%></p>
+        </li>
+      </ul>
+    <% end %>
+  </body>
+<html>
