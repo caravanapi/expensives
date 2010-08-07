@@ -7,7 +7,6 @@ configure do
   require 'models/database'
 end
 
-
 # Administração
 
 get '/noticias/nova' do
@@ -34,6 +33,6 @@ get '/' do
 end
 
 get '/noticias/:slug' do
-  @post = Post.by_slug(params[:slug])
+  @post = Post.by_slug(params[:slug]).first
   erb :show
 end
