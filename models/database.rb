@@ -10,6 +10,7 @@ ActiveRecord::Migration.class_eval do
       t.string :image_url, :null => false
       t.string :slug, :null => false
     end
-    # add_index :posts, :slug
+  else
+      add_column :posts, :active, :boolean, :default => true, :null => false unless Post.column_names.include?("active")
   end
 end

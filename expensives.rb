@@ -22,7 +22,7 @@ post '/noticias' do
 end
 
 post '/ativar/:id' do
-  
+  @post = Post.find(params[:id])
 end
 
 post '/desativar/:id' do
