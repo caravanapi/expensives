@@ -4,7 +4,6 @@ require 'expensives'
 describe "Expensives" do  
   include Rack::Test::Methods
   
-  
   before(:each) do
     @post = Post.new({
       :title => "This is a title",
@@ -22,7 +21,7 @@ describe "Expensives" do
     it "should be succesfull" do
       get '/'
       last_response.should be_ok
-    end    
+    end
     
     it "should display a list of posts" do
       Post.should_receive(:all).with(no_args).and_return([@post])
@@ -45,6 +44,24 @@ describe "Expensives" do
       get '/admin/new'
       last_response.should be_ok
       last_response.body.should =~ /<form action=\"\/admin\/create\" method=\"post\">/
+    end
+  end
+  
+  describe "POST /admin/create" do
+    it "should create a new post" do
+      Post.should_receive(:create).with({
+        'title' => 'This is a titile',
+        'subtitle' => 'This is a subtitle',
+        'image_url' => 'http://www.google.com'
+      }).and_return(@post)
+      
+      post '/admin/create', :post => {
+        :title => 'This is a titile',
+        :subtitle => 'This is a subtitle',
+        :image_url => 'http://www.google.com'
+      }
+      follow_redirect!
+      last_response.should be_ok
     end
   end
 end

@@ -1,7 +1,6 @@
 require 'rubygems'
 require 'sinatra'
 require 'active_record'
-$LOAD_PATH << '.'
 
 require 'models/post'
 configure do
@@ -14,7 +13,7 @@ get '/' do
 end
 
 get '/:slug' do
-  @post = Post.by_slug(params[:slug])
+  @post = Post.find_by_slug(params[:slug]).first
   erb :show
 end
 
@@ -25,7 +24,10 @@ get '/admin/new' do
 end
 
 post '/admin/create' do
-  
+  @post = Post.new(params[:post])
+  if @post.save
+    redirect "/#{@post.slug}" 
+  end
 end
 
 post '/ativar/:id' do
