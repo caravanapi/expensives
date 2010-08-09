@@ -10,13 +10,11 @@
 </div>
 <div id="news">
   <h3 id="morenews">Outras Notícias</h3>
-<% @posts.each do |post| %>
   <ul class="post">
+<% @posts.each do |post| %>
     <li>
-      <!-- h2><%= post.title %></h2 -->
       <a href="/noticias/<%= post.slug %>"><img src="<%= post.image_url %>" title="<%= post.title %>: <%= post.subtitle %>" class="thumb" /></a>
-      <!-- p><%= post.subtitle%></p -->
     </li>
-  </ul>
 <% end %>
+  </ul>
 </div>
