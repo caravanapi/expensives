@@ -1,6 +1,10 @@
 require 'rubygems'
 require 'sinatra'
 require 'active_record'
+require 'active_support'
+require 'active_support/all'
+
+$KCODE = 'UTF8'
 
 require 'models/post'
 configure do
