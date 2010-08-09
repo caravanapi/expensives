@@ -130,7 +130,7 @@ p.legend span {
   height:156px;
   overflow:hidden;
   float:left;
-  margin-right:10px;
+  margin:0 10px 10px 0;
 }
 .post .thumb {
   width:150px;
