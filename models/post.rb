@@ -10,6 +10,7 @@ class Post < ActiveRecord::Base
 #  default_scope :conditions => "active = 1"
   
   def slugfy
-    self.slug = title.gsub(/\W/, '-').downcase
+#    self.slug = title.gsub(/\W/, '-').downcase
+    self.slug = title.parameterize.to_s
   end
 end
