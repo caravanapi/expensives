@@ -51,3 +51,8 @@ get '/noticias/:slug' do
   @posts = Post.all
   erb :show
 end
+
+get '/feed' do
+  @posts = Post.all(:limit => 10, :order => 'id DESC')
+  builder :feed
+end

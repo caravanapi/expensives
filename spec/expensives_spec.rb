@@ -83,5 +83,18 @@ describe "Expensives" do
     end
   end
   
+  describe 'GET /feed' do
+    it 'should response ok' do
+      Post.should_receive(:all).with(:limit => 10, :order => 'id DESC').and_return([@post])
+      get '/feed'
+      last_response.should be_ok
+    end
+
+    it "should display a list of posts" do
+      Post.stub!(:all).and_return([@post])
+      get '/feed'
+      last_response.body.should =~ /<link>http::\/\/fucas.heroku.com\/noticias\/this-is-a-title<\/link>/
+    end
+  end
 
 end
