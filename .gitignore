@@ -1,2 +1,2 @@
-db/expensives.db
+db/*.sqlite3
 .rvmrc
