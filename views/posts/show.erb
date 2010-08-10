@@ -1,0 +1,22 @@
+<div id="front">
+  <img src="<%= @post.image_url %>" alt="<%= @post.title %>" />
+  <p class="legend"><%= @post.subtitle %><span><%= @post.title %></span></p>
+  <div id="new">
+    <a href="/noticias/nova"><em>Fu&ccedil;e</em> voc&ecirc; tamb&eacute;m</a>
+  </div>
+  <div id="fb">
+    <iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Ffucas.heroku.com%2F&amp;layout=standard&amp;show_faces=true&amp;width=450&amp;action=like&amp;colorscheme=dark&amp;height=80" scrolling="no" frameborder="0" style="float:left; border:none; overflow:hidden; width:450px; height:80px;" allowTransparency="true"></iframe>
+  </div>
+</div>
+<div id="news">
+  <h3 id="morenews">Outras Notícias</h3>
+  <% @post.issue.posts.each do |post| %>
+    <ul class="post">
+      <li>
+        <a href="/edicao/<%= post.issue.edition %>/<%= post.slug %>">
+          <img src="<%= post.image_url %>" alt="<%= post.title %>" title="<%= post.title %>: <%= post.subtitle %>" class="thumb" />
+        </a>
+      </li>
+    </ul>
+  <% end %>
+</div>
