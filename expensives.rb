@@ -8,14 +8,20 @@ end
 
 # Administração
 
+get '/edicao/:edition' do
+  @post = Issue.find_by_edition(params[:edition]).highlight
+  erb :'posts/show'
+end
+
 get '/noticias/nova' do
-  erb :new
+  erb :'posts/new'
 end
 
 post '/noticias' do
   @post = Post.new(params[:post])
+  @post.issue = Issue.most_recent.first
   if @post.save
-    redirect "/noticias/#{@post.slug}" 
+    redirect "/edicao/#{@post.issue.edition}/#{@post.slug}"
   end
 end
 
@@ -23,7 +29,7 @@ post '/ativar/:id' do
   @post = Post.find(params[:id])
   @post.active = true
   if @post.save
-    redirect "/noticias/#{@post.slug}"
+    redirect "/edicao/#{@post.issue.edition}/#{@post.slug}"
   end
 end
 
@@ -31,18 +37,17 @@ post '/desativar/:id' do
   @post = Post.find(params[:id])
   @post.active = false
   if @post.save
-    redirect "/noticias"
+    redirect "/edicao/#{@post.issue.edition}"
   end
 end  
 
 get '/' do
-  @posts = Post.all
-  @issue = 1
-  erb :index
+  @issue = Issue.most_recent.first
+  redirect "/edicao/#{@issue.edition}"
 end
 
-get '/noticias/:slug' do
+get '/edicao/:edition/:slug' do
   @post = Post.by_slug(params[:slug]).first
   @posts = Post.all
-  erb :show
+  erb :'posts/show'
 end
