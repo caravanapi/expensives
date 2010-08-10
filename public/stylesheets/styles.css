@@ -66,6 +66,8 @@ p.legend {
   font-size:1.5em;
   width:700px;
   color:yellow;
+  opacity: 1;
+  -webkit-transition: opacity 500ms ease-out;
 }
 p.legend span {
   color:#fff;
@@ -147,6 +149,13 @@ p.legend span {
 }
 #front {
   position:relative;
+}
+#front > img {
+  max-width: 750px;
+}
+#front:hover .legend {
+  opacity: 0.03;
+  -webkit-transition: opacity 500ms ease-out 1.5s;
 }
 #footer {
   padding:20px 0 6px;
