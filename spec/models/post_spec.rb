@@ -1,6 +1,14 @@
 require 'spec_helper'
 
 describe Post do
+  before(:all) do
+    Post.delete_all
+  end
+  
+  after(:each) do
+    Post.delete_all
+  end
+  
   subject do
     @post = Post.new({
       :title => "This is a title",

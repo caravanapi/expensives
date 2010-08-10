@@ -1,9 +1,13 @@
 source :gemcutter
 
 gem "sinatra"
-gem "activerecord"
+gem "activerecord", :require => "active_record"
 gem "sqlite3-ruby"
 
-gem "rack-test"
-gem "rspec"
-gem "autotest"
+group :test do
+  gem "rspec"
+  gem "rack-test"
+  gem "autotest"
+  gem "autotest-notification"
+  gem "autotest-fsevent"
+end

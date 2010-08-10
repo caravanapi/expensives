@@ -1,10 +1,9 @@
+#!/usr/bin/env ruby
 require 'rubygems'
 require 'sinatra'
-require 'active_record'
 
-require 'models/post'
 configure do
-  require 'models/database'
+  require File.expand_path('config/run', File.dirname(__FILE__))
 end
 
 # Administração

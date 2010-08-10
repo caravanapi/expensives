@@ -5,6 +5,7 @@ require 'sinatra'
 require 'rack/test'
 require 'spec'
 
+ENV['RACK_ENV'] = 'test'
 set :environment, :test
 set :run, false
 set :raise_errors, true

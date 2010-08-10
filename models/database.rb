@@ -3,17 +3,30 @@ config = YAML.load(File.read('database.yml'))
 ActiveRecord::Base.establish_connection config[ENV['RACK_ENV']]
 
 ActiveRecord::Migration.class_eval do
-  columns = {
-    :title => { :type => :string, :options => { :null => false } },
-    :subtitle => { :type => :string, :options => { :null => false } },
-    :image_url => { :type => :string, :options => { :null => false } },
-    :slug => { :type => :string, :options => { :null => false } },
-    :active => { :type => :boolean, :options => { :default => true, :null => false }}
+  tables = {
+    Issue => {
+      :edition => { :type => :integer, :default => 0, :null => false },
+      :published_at => { :type => :date }
+    },
+    Post => {
+      :title => { :type => :string, :default => "", :null => false },
+      :subtitle => { :type => :string, :default => "", :null => false  },
+      :image_url => { :type => :string, :default => "", :null => false },
+      :slug => { :type => :string, :default => "", :null => false },
+      :active => { :type => :boolean, :default => true, :null => false },
+      :issue_id => { :type => :integer }
+    }
   }
   
-  create_table :posts unless Post.table_exists?
-  columns.each_pair do |name, info|
-    add_column(:posts, name, info[:type], info[:options]) unless Post.column_names.include?(name.to_s)
+  tables.each_pair do |klass, columns|
+    create_table klass.table_name unless klass.table_exists?
+    columns.each_pair do |name, info|
+      unless klass.column_names.include?(name.to_s)
+        add_column(klass.table_name, name, info[:type], info.except(:type))
+      end
+    end
   end
-  # add_index :posts, :slug
+  unless index_exists?(:posts, "posts_slug", true)
+    add_index :posts, :slug, :unique => true, :name => "posts_slug"
+  end
 end
