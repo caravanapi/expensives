@@ -4,7 +4,8 @@ require 'models/post'
 Setup.tables = {
   Issue => {
     :edition => { :type => :integer, :default => 0, :null => false },
-    :published_at => { :type => :date }
+    :published_at => { :type => :date },
+    :highlight_id => { :type => :integer }
   },
   Post => {
     :title => { :type => :string, :default => "", :null => false },
