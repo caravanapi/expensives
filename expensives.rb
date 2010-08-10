@@ -14,12 +14,14 @@ get '/edicao/:edition' do
 end
 
 get '/noticias/nova' do
+  @post = Post.new :issue => Issue.most_recent.first
   erb :'posts/new'
 end
 
 post '/noticias' do
   @post = Post.new(params[:post])
   @post.issue = Issue.most_recent.first
+  @post.issue.highlight ||= @post
   if @post.save
     redirect "/edicao/#{@post.issue.edition}/#{@post.slug}"
   end
