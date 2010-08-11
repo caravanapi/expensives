@@ -4,8 +4,18 @@
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
     <title>Revista Fuças - A primeira Revista de fofocas Nerd</title>
     <link href="/stylesheets/styles.css" rel="stylesheet" type="text/css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="http://github.com/elektronaut/jquery.livetwitter/raw/master/jquery.livetwitter.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" charset="utf-8">
+      $(function() {
+        $("#twitter").liveTwitter('#fucas', {limit: 10, rate: 15000});
+      });
+    </script>
   </head>
   <body>
+    <div id='twitter'>
+      
+    </div>
     <div id="page">
       <div id="top">
         <h1 id="logo"><a href="/"><img src="/images/fucas.png" alt="Revista Fuças" /></a></h1>

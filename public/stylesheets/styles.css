@@ -171,3 +171,44 @@ p.legend span {
 #footer a:hover {
   color:#444;
 }
+
+#twitter {
+  opacity: 0.2;
+  position: absolute;
+  left: 0;
+  width: 180px;
+  height: 400px;
+  font-family: Verdana;
+  font-size: 0.7em;
+  text-align: left;
+  line-height: 1.2em;
+  padding: 10px 0 0 10px;
+  -webkit-transition: opacity 500ms linear;
+}
+
+#twitter:hover {
+  opacity: 1;
+}
+
+#twitter .tweet img {
+  float: left;
+  width: 2.8em;
+  height: 2.8em;
+  margin-right: 4px;
+}
+#twitter .tweet .text {
+  display: inline;
+}
+
+#twitter .tweet {
+  margin-bottom: 10px;;
+}
+
+#twitter a {
+  color: #666;
+}
+
+#twitter .time {
+  display: block;
+  text-align: right;
+}
