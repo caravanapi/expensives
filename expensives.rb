@@ -3,7 +3,7 @@ require 'rubygems'
 require 'bundler'
 
 ENV['RACK_ENV'] ||= 'development'
-Bundler.require(:default, settings.environment)
+Bundler.require(:default, ENV['RACK_ENV'])
 
 configure do
   require File.expand_path('config/run', File.dirname(__FILE__))
