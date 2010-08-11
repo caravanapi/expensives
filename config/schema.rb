@@ -1,5 +1,5 @@
-require 'models/issue'
-require 'models/post'
+require './models/issue'
+require './models/post'
 
 Setup.tables = {
   Issue => {

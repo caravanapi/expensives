@@ -1,6 +1,9 @@
 #!/usr/bin/env ruby
 require 'rubygems'
-require 'sinatra'
+require 'bundler'
+
+ENV['RACK_ENV'] ||= 'development'
+Bundler.require(:default, settings.environment)
 
 configure do
   require File.expand_path('config/run', File.dirname(__FILE__))

@@ -2,7 +2,7 @@ source :gemcutter
 
 gem "sinatra"
 gem "activerecord", :require => "active_record"
-gem "sqlite3-ruby"
+gem "sqlite3-ruby", :require => "sqlite3"
 
 group :test do
   gem "rspec"

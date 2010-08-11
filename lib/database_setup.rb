@@ -1,13 +1,10 @@
-require 'active_record'
-require 'sqlite3'
-
 class Setup
   def self.tables=(value)
     @tables = value
   end
   
   def self.connect_to_db!
-    config = YAML.load(File.read('config/database.yml'))
+    config = YAML.load(File.read('./config/database.yml'))
     ActiveRecord::Base.establish_connection config[ENV['RACK_ENV']]
   end
   
