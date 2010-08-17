@@ -1,1 +1,13 @@
+Introdução
+----------
+
 app para fazer outros railers se morderem de raiva
+
+
+TODO
+----
+
+* Persistir as imagens em diversos formatos, por exemplo, :thumb (70x70), :mini (150x150), :normal (?) e :original (?)
+* Permitir comentários nas fotos
+* Colocar um link pro arquivo original, com data e hora que foi adicionado no Fuças
+* Extender esse TODO
