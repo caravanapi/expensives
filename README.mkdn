@@ -1,7 +1,7 @@
 Introdução
 ----------
 
-app para fazer outros railers se morderem de raiva
+A primeira revista de fofocas Nerd
 
 
 TODO
